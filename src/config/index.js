@@ -1,6 +1,6 @@
-const port = process.env.PORT || 4000;
+//const port = process.env.PORT || 4000;
 const jwtKey = process.env.JWT_KEY || 'secret_key_jwt';
-const database_url = process.env.DATABASE_URL || 'mongodb://localhost:27017/smart_home';
+//const database_url = process.env.DATABASE_URL || 'mongodb://localhost:27017/smart_home';
 
 // const emailHost = process.env.EMAIL_HOST
 // const emailPort = process.env.EMAIL_PORT
@@ -27,7 +27,5 @@ module.exports = {
   //   },
   // userConfig,
   emailConfig,
-  port,
-  database_url,
   jwtKey,
 };

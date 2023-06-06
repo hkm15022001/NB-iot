@@ -4,10 +4,10 @@ const express = require("express");
 const apiResponse = require("./utils/apiResponse");
 const APIStatus = require("./constants/APIStatus");
 const db = require("./db/mongoose");
-//const cors = require("cors");
+const cors = require("cors");
 const route = require("./routes");
 const app = express();
-
+require("./services/mqtt.service");
 
 
 // Parse body req to json
@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Enable cors
-//app.use(cors());
+app.use(cors());
 
 // Route middleware
 route(app);
@@ -43,7 +43,7 @@ app.use((err, req, res, next) => {
 //Connect to mongodb database
 (async () => {
   try {
-    await db.connect;
+    await db.connection();
     const PORT = process.env.PORT || 8080;
     const HOST_NAME = process.env.HOST_NAME || "localhost";
     app.listen(PORT, HOST_NAME,() => {

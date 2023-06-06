@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const { Schema } = mongoose;
 const userSchema = new mongoose.Schema({
 	username: {
 		type: String,
@@ -46,10 +46,10 @@ const userSchema = new mongoose.Schema({
 		type: Date,
 		required: false,
 	},
-	listRooms: {
-		type: Array,
-		default: [],
-	},
+	// listRooms: {
+	// 	type: Array,
+	// 	default: [],
+	//},
 	createdDate: {
 		type: Date,
 		default: Date.now,
