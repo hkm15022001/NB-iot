@@ -20,7 +20,7 @@ const getDeviceDataRealTime = async (req, res, next) => {
 
 // Get data Device range
 const getDeviceDataRange = async (req, res, next) => {
-  const device = await getDeviceDb({ _id: req.user._id});
+  const deviceId = req.params.id;
   const {
     begin_month,
     begin_day,
@@ -51,7 +51,7 @@ const getDeviceDataRange = async (req, res, next) => {
   let range = end - start;
   let miniRange = range / 20; //20 khoảng thời gian
 
-  const rs = await getDeviceDataRangeDb({device, dateBegin, dateEnd, miniRange });
+  const rs = await getDeviceDataRangeDb({deviceId, dateBegin, dateEnd, miniRange });
   return res.status(204).json(
     apiResponse({
       status: APIStatus.SUCCESS,

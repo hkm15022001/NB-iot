@@ -10,7 +10,7 @@ const {
 
 
 router.get("/:id", authUser, asyncWrap(getDeviceDataRealTime));
-router.post("/get-data", authUser, asyncWrap(getDeviceDataRange));
+router.post("/:id/get-data", authUser, asyncWrap(getDeviceDataRange));
 router.post("/push-data", authUser, asyncWrap(insertDeviceData));
 
 module.exports = router;

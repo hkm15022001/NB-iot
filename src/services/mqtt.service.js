@@ -3,7 +3,7 @@ const { insertDataDeviceDb } = require("../db/data.db");
 
 const host_mqtt = "broker.hivemq.com";
 const port_mqtt = "1883";
-const clientId = `8a673344-cc1c-4bfc-9f68-bab47bbbf845`;
+const clientId = `f4a8e52b-b1c5-4336-81d6-244778996120`;
 const connectUrl = `mqtt://${host_mqtt}:${port_mqtt}`;
 const deviceId ="647ef8476acc038a2885462d";
 const responseMs = {
@@ -22,9 +22,14 @@ var mqttClient = mqtt.connect(connectUrl, {
 
 mqttClient.once("connect",  () => {
   console.log("Connect to mqtt successfully");
-  mqttClient.subscribe(`messages/${deviceId}/attributets`);
-  console.log("Subcribed topic");
+  mqttClient.subscribe(`messages/${deviceId}/attributets`, () => {
+    console.log("Subscribe to topic");
+  });
+});  
+  // mqttClient.subscribe(`messages/${deviceId}/attributets`);
+  // console.log("Subcribed topic");
   mqttClient.on("message", async (topic, msg) => {
+    console.log("ac");
     const message = JSON.parse(msg.toString());
     console.log(`Recived ${message} from ${topic}`);
     //const {rsrp,rsrq,sinr,cellId,longitude,latitude} = message;
@@ -36,7 +41,7 @@ mqttClient.once("connect",  () => {
       console.log(error);
     }
   });
-});
+
 
 mqttClient.on("error", function (error) {
   console.log("Unable to connect: " + error);

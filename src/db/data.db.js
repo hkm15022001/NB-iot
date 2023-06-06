@@ -27,8 +27,7 @@ const getDeviceDataDb = async (query) => {
 
 // get data from device
 const getDeviceDataRangeDb = async (query) => {
-    const { device, dateBegin, dateEnd, miniRange } = query;
-    const deviceId = device._id;
+    const { deviceId, dateBegin, dateEnd, miniRange } = query;
     //lấy thông tin theo các mốc thời gian
     const rs = await Device.find({
         _id: deviceId,
