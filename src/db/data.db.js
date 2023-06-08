@@ -8,10 +8,10 @@ const getDeviceDataDb = async (query) => {
         const device = await Device.findById(query)
             .populate({
                 path: "data",
-                options: { sort: { createdDate: -1 }, limit: 1 }, // Sắp xếp và giới hạn kết quả
+                options: { sort: { createdDate: -1 }, limit: 10 }, // Sắp xếp và giới hạn kết quả
             });
         return {
-            data: device.data[0]
+            data: device.data
         }
         // const device = await Device.findOne(query).sort({
         //     _id: -1, // mới nhất đến cũ nhất

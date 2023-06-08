@@ -3,10 +3,7 @@ const { Schema } = mongoose;
 const moment = require('moment-timezone');
 const timezone = require('mongoose-timezone');
 
-mongoose.plugin(timezone, {
-  paths: ['createdDate', 'modifiedDate'], // Các trường ngày tháng muốn chuyển đổi
-  //useNativeMongoDate: true, // Sử dụng ngày tháng MongoDB gốc
-});
+
 
 const dataSchema = new mongoose.Schema(
   {
@@ -78,8 +75,7 @@ const deviceSchema = new mongoose.Schema(
     }
   }
 );
-deviceSchema.set('toObject', { getters: true });
-deviceSchema.set('toJSON', { getters: true });
+
 const Device = mongoose.model("Device", deviceSchema);
 
 module.exports ={Data,Device};
