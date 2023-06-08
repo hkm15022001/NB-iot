@@ -24,7 +24,7 @@ const options = {
 };
 const connection =async ()=>{
     //console.log(options.user, options.pass);
-    await mongoose.connect(process.env.DB_HOST_NAME , options);
+    await mongoose.connect(process.env.DB_URL , options);
     const state = Number(mongoose.connection.readyState);
     console.log(dbState.find(f => f.value === state).label, "to db"); 
 } 

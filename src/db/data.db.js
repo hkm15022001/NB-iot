@@ -80,7 +80,7 @@ const getDeviceDataRangeDb = async (query) => {
                       }
                 }
             }
-            console.log(value);
+            
             result.push(value);
         }
         return result;

@@ -50,7 +50,7 @@ const getDeviceDataRange = async (req, res, next) => {
   let start = dateBegin.valueOf();
   let end = dateEnd.valueOf();
   let range = end - start;
-  let miniRange = range / 20; //20 khoảng thời gian
+  let miniRange = range / 10; //10 khoảng thời gian
   console.log(start,end,range,miniRange);
   try {
     const rs = await getDeviceDataRangeDb({ deviceId, dateBegin, dateEnd, miniRange });
