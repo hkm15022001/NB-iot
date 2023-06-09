@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const { Schema } = mongoose;
+const moment = require('moment-timezone');
+
 const userSchema = new mongoose.Schema({
 	username: {
 		type: String,
@@ -52,11 +53,11 @@ const userSchema = new mongoose.Schema({
 	//},
 	createdDate: {
 		type: Date,
-		default: Date.now,
+		default: moment().add(7, 'hours'),
 	},
 	modifiedDate: {
 		type: Date,
-		default: Date.now,
+		default: moment().add(7, 'hours'),
 	},
 },{
     timestamps: true

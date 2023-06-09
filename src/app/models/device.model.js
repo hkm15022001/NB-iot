@@ -1,9 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const moment = require('moment-timezone');
-const timezone = require('mongoose-timezone');
-
-
 
 const dataSchema = new mongoose.Schema(
   {
@@ -40,11 +37,11 @@ const dataSchema = new mongoose.Schema(
     },
     createdDate: {
       type: Date,
-      default: Date.now(),
+      default: () => moment().add(7, 'hours')
     },
     modifiedDate: {
       type: Date,
-      default: Date.now(),
+      default: () => moment().add(7, 'hours')
     }
   }
 );
@@ -67,11 +64,11 @@ const deviceSchema = new mongoose.Schema(
     data: [{ type: Schema.Types.ObjectId, ref: 'Data' }],
     createdDate: {
       type: Date,
-      default: Date.now(),
+      default: () => moment().add(7, 'hours')
     },
     modifiedDate: {
       type: Date,
-      default: Date.now(),
+      default: () => moment().add(7, 'hours')
     }
   }
 );

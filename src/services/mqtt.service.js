@@ -32,9 +32,6 @@ mqttClient.once("connect",  () => {
   // console.log("Subcribed topic");
   mqttClient.on("message", async (topic, msg) => {
     const message = JSON.parse(msg.toString());
-    console.log(`Recived ${message} from ${topic}`);
-    //const {rsrp,rsrq,sinr,cellId,longitude,latitude} = message;
-      console.log({deviceId,...message});
       await insertDataDeviceDb({deviceId,...message});
       mqttClient.publish(pubTopic,JSON.stringify(responseMs));
   });
