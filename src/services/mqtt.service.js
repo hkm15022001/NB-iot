@@ -7,7 +7,7 @@ const port_mqtt = "1883";
 const clientId = "f4a8e52b-b1c5-4336-81d6-244778996120";
 const connectUrl = `mqtt://${host_mqtt}:${port_mqtt}`;
 const deviceId ="647ef8476acc038a2885462d";
-const subTopic = `messages/${deviceId}`,pubTopic = `messages/${deviceId}/response`;
+const subTopic = `messages/${deviceId}/sub`,pubTopic = `messages/${deviceId}/response`;
 const responseMs = {
   code :1
 };
