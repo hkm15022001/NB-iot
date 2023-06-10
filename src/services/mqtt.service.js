@@ -4,10 +4,10 @@ const { insertDataDeviceDb } = require("../db/data.db");
 //const host_mqtt = "broker.hivemq.com";
 const host_mqtt = "broker.hivemq.com";
 const port_mqtt = "1883";
-const clientId = "1e5ae3d3-6b5f-4185-9020-708449183548";
+const clientId = "f4a8e52b-b1c5-4336-81d6-244778996120";
 const connectUrl = `mqtt://${host_mqtt}:${port_mqtt}`;
 const deviceId ="647ef8476acc038a2885462d";
-const subTopic = `messages/${deviceId}/updatea`,pubTopic = `messages/${deviceId}/response`;
+const subTopic = `messages/${deviceId}/update`,pubTopic = `messages/${deviceId}/response`;
 const responseMs = {
   code :1
 };

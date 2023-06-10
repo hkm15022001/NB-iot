@@ -11,7 +11,7 @@ const getDeviceDataDb = async (query) => {
                 options: { sort: { createdDate: -1 }, limit: 10 }, // Sắp xếp và giới hạn kết quả
             });
         return {
-            data: device.data
+            data: device?.data
         }
         // const device = await Device.findOne(query).sort({
         //     _id: -1, // mới nhất đến cũ nhất
@@ -100,11 +100,11 @@ const getDeviceDataRangeDb = async (query) => {
 
 // Insert data
 const insertDataDeviceDb = async (query) => {
-    const { deviceId, rsrp, rsrq, sinr, cellId, longitude, latitude } = query;
+    const { deviceId, rsrp, pci, rsrq, sinr, cellId, longitude, latitude } = query;
 
     try {
         // Tạo một đối tượng Data mới
-        const newData = await new Data({ deviceId, rsrp, rsrq, sinr, cellId, longitude, latitude }).save();
+        const newData = await new Data({ deviceId, rsrp, rsrq, pci, sinr, cellId, longitude, latitude }).save();
 
         // Tìm và liên kết đối tượng Data với một đối tượng Device cụ thể
         const device = await Device.findById(deviceId);
