@@ -100,11 +100,11 @@ const getDeviceDataRangeDb = async (query) => {
 
 // Insert data
 const insertDataDeviceDb = async (query) => {
-    const { deviceId, rsrp, pci, rsrq, sinr, cellId, longitude, latitude } = query;
-
+    const { deviceId, rsrp, pci, rsrq, sinr, cellid, longitude, latitude } = query;
+    
     try {
         // Tạo một đối tượng Data mới
-        const newData = await new Data({ deviceId, rsrp, rsrq, pci, sinr, cellId, longitude, latitude }).save();
+        const newData = await new Data({ deviceId, rsrp, rsrq, pci, sinr, cellId :cellid, longitude, latitude }).save();
 
         // Tìm và liên kết đối tượng Data với một đối tượng Device cụ thể
         const device = await Device.findById(deviceId);
